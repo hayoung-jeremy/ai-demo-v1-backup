@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: #fff;
+  color: #3e3647;
+  min-height: 100vh;
+}
+
+::-webkit-scrollbar {
+  display: block;
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-grayscale-700;
+  background-clip: padding-box;
+  border: 2px solid transparent;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 1px;
+}
+
+.btn {
+  @apply flex items-center justify-center gap-3
+    outline-none ring-0
+    py-4 px-4 rounded-[16px]
+    transition-all duration-[280ms]
+    disabled:cursor-not-allowed;
+}
+
+.btn.grayscaled {
+  @apply bg-grayscale-50
+    hover:shadow-[0px_0px_12px_8px_#00000012];
+}
+
+.btn.negative {
+  @apply bg-negative 
+    bg-opacity-80 hover:bg-opacity-90
+    hover:border-negative
+    hover:shadow-[0px_0px_16px_8px_#e23e4c36];
+}
+
+.btn.small {
+  @apply px-3 py-1.5 rounded-[8px] gap-1;
+}
+
+.btn.outlined {
+  @apply border;
+}
+
+.btn.iconOnly {
+  @apply p-2 rounded-lg;
+}
+
+.text_area {
+  @apply w-full h-full max-h-[404px]
+    px-3 py-2
+    bg-transparent
+    outline-none ring-0
+    border border-grayscale-700 rounded
+    text-grayscale-50
+    placeholder:text-grayscale-600
+    focus:border-primary/40 focus:shadow-[0px_0px_12px_4px_#c092e920]
+    disabled:text-grayscale-500 disabled:bg-grayscale-700/20 disabled:cursor-not-allowed;
+  resize: none;
+}
+
+.radial-circle-loader:before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  border-bottom: 0 solid #ffffff05;
+
+  box-shadow: 0 -10px 20px 20px #ffffff20 inset, 0 -5px 15px 10px #ffffff50 inset,
+    0 -2px 5px #f3e6ff inset, 0 -3px 2px #ffffffbb inset, 0 2px 0px #ffffff, 0 2px 3px #ffffff,
+    0 5px 5px #ffffff90, 0 10px 15px #ffffff60, 0 10px 20px 20px #ffffff20;
+  filter: blur(3px);
+  animation: 2s rotate linear infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.text-shadow-white {
+  text-shadow: #fff 1px 1px 2px;
+}
